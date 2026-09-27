@@ -1,8 +1,8 @@
-public class Main {
-    public static void main(String[] args) {
-        Input input = new Input();
-        boolean isRunning = true;
+public class LibraryApp {
+    Input input = new Input();
+    boolean isRunning = true;
 
+    public void run() {
         while (isRunning) {
             String purpose = input.getPurposeInput();
             switch (purpose) {
@@ -26,6 +26,5 @@ public class Main {
                     System.out.println("Invalid input. Please try again.");
             }
         }
-
     }
 }

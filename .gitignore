@@ -1,4 +1,5 @@
 ### IntelliJ IDEA ###
+target/
 out/
 *.class
 .idea/
@@ -31,3 +32,16 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Dependencies / Binaries ###
+*.jar
+*.war
+lib/
+
+### Database / SQLite ###
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
