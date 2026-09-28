@@ -13,7 +13,6 @@ Library-inventory/
     └── main/
         └── java/
             ├── Book.java          # Represents a book item in the library (extends Item)
-            ├── Database.java      # Handles database connection and persistence
             ├── Input.java         # Handles user input and CLI menu prompts
             ├── Item.java          # Base class for library items
             ├── LibraryApp.java    # Manages application menu loop and user actions
