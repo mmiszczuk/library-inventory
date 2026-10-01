@@ -45,3 +45,6 @@ lib/
 *.db-journal
 *.db-wal
 *.db-shm
+
+### Data Files ###
+books.txt

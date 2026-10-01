@@ -4,10 +4,11 @@ public class LibraryApp {
 
     public void run() {
         while (isRunning) {
-            String purpose = input.getPurposeInput();
+            String purpose = input.getPurpose();
             switch (purpose) {
                 case "1":
-                    // Add a new item
+                    // add a new book
+                    FileManager.store(input.getBookInfo());
                     break;
                 case "2":
                     // Remove an item
