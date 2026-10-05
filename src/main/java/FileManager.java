@@ -27,4 +27,66 @@ public class FileManager {
             }
         }
     }
+    public String read() {
+        makeFile();
+        StringBuilder content = new StringBuilder();
+
+        Input input = new Input();
+        int searchType = input.SearchType();
+        switch (searchType) {
+            case 1:
+                // Search by title
+                String title = input.getBookTitle();
+                try {
+                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        if (line.contains(title)) {
+                            content.append(line).append("\n");
+                        }
+                    }
+                    scanner.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return content.toString();
+            case 2:
+                // Search by author
+                String author = input.getBookAuthor();
+                try {
+                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        if (line.contains(author)) {
+                            content.append(line).append("\n");
+                        }
+                    }
+                    scanner.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return content.toString();
+            case 3:
+                // Search by year
+                int year = input.getBookYear();
+                try {
+                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        if (line.contains(String.valueOf(year))) {
+                            content.append(line).append("\n");
+                        }
+                    }
+                    scanner.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return content.toString();
+            default:
+                System.out.println("Invalid search type. Please try again.");
+
+
+            }
+        return content.toString();
+    }
 }

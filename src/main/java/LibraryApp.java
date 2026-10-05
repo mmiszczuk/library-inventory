@@ -12,9 +12,11 @@ public class LibraryApp {
                     break;
                 case "2":
                     // Remove an item
+
                     break;
                 case "3":
                     // Search for an item
+                    System.out.println("Search results:\n" + new FileManager().read());
                     break;
                 case "4":
                     // Display all items

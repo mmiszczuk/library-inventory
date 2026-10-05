@@ -7,17 +7,17 @@ public class Input {
         String userInput = myScanner.nextLine();
         return userInput;
     }
-    private String getBookTitle() {
+    public String getBookTitle() {
         System.out.print("Input the title of the book: ");
         String userInput = myScanner.nextLine();
         return userInput;
     }
-    private String getBookAuthor() {
+    public String getBookAuthor() {
         System.out.print("Input the author of the book: ");
         String userInput = myScanner.nextLine();
         return userInput;
     }
-    private int getBookYear() {
+    public int getBookYear() {
         System.out.print("Input the year of the book: ");
         String userInput = myScanner.nextLine();
         return Integer.parseInt(userInput);
@@ -28,6 +28,10 @@ public class Input {
         int year = getBookYear();
         return new Book(title, author, year);
     }
-
+    public int SearchType() {
+        System.out.print("Input the following numbers to search by: \n [1] Title \n [2] Author \n [3] Year \n");
+        String userInput = myScanner.nextLine();
+        return Integer.parseInt(userInput);
+    }
 
 }
