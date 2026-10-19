@@ -182,4 +182,64 @@ public class FileManager {
             e.printStackTrace();
         }
     }
+    public static void removeMember(String name) {
+        makeFile(membersFileName);
+        StringBuilder content = new StringBuilder();
+        int newIndex = 1;
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(membersFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (!line.contains(name)) {
+                    // Get everything starting from the first comma: ", Name, PhoneNumber"
+                    String restOfLine = line.substring(line.indexOf(","));
+                    content.append(newIndex).append(restOfLine).append("\n");
+                    newIndex++;
+                }
+            }
+            scanner.close();
+            java.io.FileWriter writer = new java.io.FileWriter(new File(membersFileName));
+            writer.write(content.toString());
+            writer.close();
+            System.out.println("Member " + name + " removed successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static String searchMembers() {
+        makeFile(membersFileName);
+        StringBuilder content = new StringBuilder();
+
+        Input input = new Input();
+        System.out.print("Input the name of the member: ");
+        String name = input.myScanner.nextLine();
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(membersFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.contains(name)) {
+                    content.append(line).append("\n");
+                }
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content.toString();
+    }
+    public static String readMembers() {
+        String allMembers = "";
+        makeFile(membersFileName);
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(membersFileName));
+            while (scanner.hasNextLine()) {
+                allMembers += scanner.nextLine() + "\n";
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return allMembers;
+    }
 }

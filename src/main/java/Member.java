@@ -10,8 +10,12 @@ public class Member {
     public String getName() {
         return name;
     }
+
     public int getPhoneNumber() {
         return phoneNumber;
+    }
+    public String toString() {
+        return name + ", " + phoneNumber;
     }
 
 }

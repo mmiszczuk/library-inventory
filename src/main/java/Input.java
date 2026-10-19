@@ -3,8 +3,20 @@ import java.util.Scanner;
 public class Input {
     Scanner myScanner = new Scanner(System.in);
     // Get the purpose of the program from the user
+    public String getChoiceBooks() {
+        System.out.print("Input the following numbers to: \n [1] Add a new item \n [2] Remove an item \n [3] Search for an item \n [4] Display all items \n");
+        String userInput = myScanner.nextLine();
+        return userInput;
+    }
+    // Get the purpose of the program from the user
+    public String getChoiceMembers() {
+        System.out.print("Input the following numbers to: \n [1] Add a new member \n [2] Remove a member \n [3] Search for a member \n [4] Display all members \n");
+        String userInput = myScanner.nextLine();
+        return userInput;
+    }
+    // Get the purpose of the program from the user
     public String getPurpose() {
-        System.out.print("Input the following numbers to: \n [1] Add a new item \n [2] Remove an item \n [3] Search for an item \n [4] Display all items \n [5] Exit the program \n");
+        System.out.print("Input the following numbers to: \n [1] Manage books \n [2] Manage members \n [3] Exit the program \n");
         String userInput = myScanner.nextLine();
         return userInput;
     }
@@ -56,6 +68,12 @@ public class Input {
         System.out.print("Input the phone number of the member: ");
         String userInput = myScanner.nextLine();
         return Integer.parseInt(userInput);
-        }
+    }
+    // Get member information from the user and return a Member object
+    public Member getMemberInfo() {
+        String name = getMemberName();
+        int phoneNumber = getMemberPhoneNumber();
+        return new Member(name, phoneNumber);
+    }
 
 }
