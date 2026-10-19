@@ -45,5 +45,17 @@ public class Input {
         String userInput = myScanner.nextLine();
         return Integer.parseInt(userInput);
     }
+    // Get the name of the member from the user
+    public String getMemberName() {
+        System.out.print("Input the name of the member: ");
+        String userInput = myScanner.nextLine();
+        return userInput;
+    }
+    // Get the phone number of the member from the user
+    public int getMemberPhoneNumber() {
+        System.out.print("Input the phone number of the member: ");
+        String userInput = myScanner.nextLine();
+        return Integer.parseInt(userInput);
+        }
 
 }
