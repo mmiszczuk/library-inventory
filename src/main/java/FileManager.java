@@ -1,23 +1,57 @@
 import java.io.File;
 import java.io.IOException;
-import java.io.FileWriter;
 
 public class FileManager {
-    static private String fileName = "books.txt";
+    private static String booksFileName = "books.txt";
+    private static String membersFileName = "members.txt";
+
+    // Store a book in the file with an index number
     public static void store(Book book) {
-        makeFile();
-        File file = new File(fileName);
+        makeFile(booksFileName);
+        int nextIndex = getLineCount(booksFileName) + 1;
+        File file = new File(booksFileName);
         try {
             java.io.FileWriter writer = new java.io.FileWriter(file, true);
-            writer.write(book.toString() + "\n");
+            writer.write(nextIndex + ", " + book.toString() + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-    public static void makeFile() {
-     // ensures that the file exists, if not creates it
+
+    public static void store(Member member) {
+        makeFile(membersFileName);
+        int nextIndex = getLineCount(membersFileName) + 1;
+        File file = new File(membersFileName);
+        try {
+            java.io.FileWriter writer = new java.io.FileWriter(file, true);
+            writer.write(nextIndex + ", " + member.getName() + ", " + member.getPhoneNumber() + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // Get the number of lines in the file
+    public static int getLineCount(String fileName) {
+        makeFile(fileName);
+        int lines = 0;
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+            while (scanner.hasNextLine()) {
+                scanner.nextLine();
+                lines++;
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
+    }
+
+    // Create the file if it doesn't exist
+    public static void makeFile(String fileName) {
         File file = new File(fileName);
         if (!file.exists()) {
             try {
@@ -27,18 +61,19 @@ public class FileManager {
             }
         }
     }
-    public String read() {
-        makeFile();
+    // Search for a book in the file based on user input and return the results as a string
+    public static String searchBooks() {
+        makeFile(booksFileName);
         StringBuilder content = new StringBuilder();
 
         Input input = new Input();
-        int searchType = input.SearchType();
+        int searchType = input.getSearchType();
         switch (searchType) {
             case 1:
                 // Search by title
                 String title = input.getBookTitle();
                 try {
-                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
                     while (scanner.hasNextLine()) {
                         String line = scanner.nextLine();
                         if (line.contains(title)) {
@@ -54,7 +89,7 @@ public class FileManager {
                 // Search by author
                 String author = input.getBookAuthor();
                 try {
-                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
                     while (scanner.hasNextLine()) {
                         String line = scanner.nextLine();
                         if (line.contains(author)) {
@@ -70,7 +105,7 @@ public class FileManager {
                 // Search by year
                 int year = input.getBookYear();
                 try {
-                    java.util.Scanner scanner = new java.util.Scanner(new File(fileName));
+                    java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
                     while (scanner.hasNextLine()) {
                         String line = scanner.nextLine();
                         if (line.contains(String.valueOf(year))) {
@@ -82,11 +117,69 @@ public class FileManager {
                     e.printStackTrace();
                 }
                 return content.toString();
+            case 4:
+                // Search by ID
+                int id = input.getBookID();
+                try {
+                    java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        if (line.startsWith(String.valueOf(id) + ",")) {
+                            content.append(line).append("\n");
+                        }
+                    }
+                    scanner.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return content.toString();
+
             default:
                 System.out.println("Invalid search type. Please try again.");
 
 
             }
         return content.toString();
+    }
+    // Read the contents of the books file and return it as a string
+    public static String readBooks() {
+        String allBooks = "";
+        makeFile(booksFileName);
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
+            while (scanner.hasNextLine()) {
+                allBooks += scanner.nextLine() + "\n";
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return allBooks;
+    }
+    // Remove a book from the file based on its ID
+    public static void removeBook(int id) {
+        makeFile(booksFileName);
+        StringBuilder content = new StringBuilder();
+        int newIndex = 1;
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (!line.startsWith(String.valueOf(id) + ",")) {
+                    // Get everything starting from the first comma: ", Title, Author, Year"
+                    String restOfLine = line.substring(line.indexOf(","));
+                    content.append(newIndex).append(restOfLine).append("\n");
+                    newIndex++;
+                }
+            }
+            scanner.close();
+            java.io.FileWriter writer = new java.io.FileWriter(new File(booksFileName));
+            writer.write(content.toString());
+            writer.close();
+            System.out.println("Book #" + id + " removed successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
