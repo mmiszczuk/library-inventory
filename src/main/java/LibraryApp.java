@@ -17,13 +17,21 @@ public class LibraryApp {
                             break;
                         case "2":
                             // Remove an item
-                            FileManager.removeBook(input.getBookID());
+                            FileManager.removeBook(input.getBookId());
                             break;
                         case "3":
                             // Search for an item
                             System.out.println("Search results:\n" + FileManager.searchBooks());
                             break;
                         case "4":
+                            // Borrow a book
+                            FileManager.borrowBook(input.borrowPromptBook(), input.borrowPromptMember());
+                            break;
+                        case "5":
+                            // Return a book
+                            FileManager.returnBook(input.getBookId());
+                            break;
+                        case "6":
                             // Display all items
                             System.out.println("All items in the library:\n \n" + FileManager.readBooks());
                             break;

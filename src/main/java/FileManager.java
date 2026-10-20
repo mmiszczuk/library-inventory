@@ -119,7 +119,7 @@ public class FileManager {
                 return content.toString();
             case 4:
                 // Search by ID
-                int id = input.getBookID();
+                int id = input.getBookId();
                 try {
                     java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
                     while (scanner.hasNextLine()) {
@@ -242,4 +242,99 @@ public class FileManager {
 
         return allMembers;
     }
+    // Borrow a book based on its ID and the borrower's ID
+    public static void borrowBook(int id , int borrower) {
+        makeFile(booksFileName);
+        makeFile(membersFileName);
+        StringBuilder content = new StringBuilder();
+        String borrowerName = "";
+        boolean bookFound = false;
+
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(membersFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.startsWith(String.valueOf(borrower) + ",")) {
+                    borrowerName = line.split(",")[1].trim();
+                }
+            }
+            scanner.close();
+            if (borrowerName.isEmpty()) {
+                System.out.println("Member #" + borrower + " not found.");
+                return;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.startsWith(String.valueOf(id) + ",")) {
+                    if (line.endsWith("Available")) {
+                        // Mark the book as borrowed
+                        line = line.replace("Available", "Borrowed by: " + borrowerName);
+                        bookFound = true;
+                    }
+                    else {
+                        System.out.println("Book #" + id + " is already borrowed.");
+                        scanner.close();
+                        return;
+                    }
+                }
+                content.append(line).append("\n");
+            }
+            scanner.close();
+            java.io.FileWriter writer = new java.io.FileWriter(new File(booksFileName));
+            writer.write(content.toString());
+            writer.close();
+            if (!bookFound) {
+                System.out.println("Book #" + id + " not found.");
+                return;
+            } else {
+                System.out.println("Book #" + id + " borrowed successfully.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // Return a book based on its ID
+    public static void returnBook(int id) {
+        makeFile(booksFileName);
+        StringBuilder content = new StringBuilder();
+        boolean bookFound = false;
+
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(new File(booksFileName));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.startsWith(String.valueOf(id) + ",")) {
+                    bookFound = true;
+                    if (line.contains("Borrowed by:")) {
+                        // Mark the book as available
+                        line = line.replaceAll("Borrowed by:.*", "Available");
+                    } else {
+                        System.out.println("Book #" + id + " is not currently borrowed.");
+                        scanner.close();
+                        return;
+                    }
+                }
+                content.append(line).append("\n");
+            }
+            scanner.close();
+
+            if (!bookFound) {
+                System.out.println("Book #" + id + " not found.");
+                return;
+            }
+
+            java.io.FileWriter writer = new java.io.FileWriter(new File(booksFileName));
+            writer.write(content.toString());
+            writer.close();
+            System.out.println("Book #" + id + " returned successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

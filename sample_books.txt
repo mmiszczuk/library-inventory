@@ -1,50 +1,50 @@
-1, The Hobbit, J.R.R. Tolkien, 1937
-2, Pride and Prejudice, Jane Austen, 1813
-3, 1984, George Orwell, 1949
-4, To Kill a Mockingbird, Harper Lee, 1960
-5, The Great Gatsby, F. Scott Fitzgerald, 1925
-6, The Catcher in the Rye, J.D. Salinger, 1951
-7, The Little Prince, Antoine de Saint-Exupery, 1943
-8, Jane Eyre, Charlotte Bronte, 1847
-9, Brave New World, Aldous Huxley, 1932
-10, Animal Farm, George Orwell, 1945
-11, The Lord of the Rings, J.R.R. Tolkien, 1954
-12, Fahrenheit 451, Ray Bradbury, 1953
-13, Moby-Dick, Herman Melville, 1851
-14, War and Peace, Leo Tolstoy, 1869
-15, Crime and Punishment, Fyodor Dostoevsky, 1866
-16, The Odyssey, Homer, -800
-17, Wuthering Heights, Emily Bronte, 1847
-18, The Adventures of Huckleberry Finn, Mark Twain, 1884
-19, Great Expectations, Charles Dickens, 1861
-20, Anna Karenina, Leo Tolstoy, 1878
-21, The Brothers Karamazov, Fyodor Dostoevsky, 1880
-22, Don Quixote, Miguel de Cervantes, 1605
-23, Les Miserables, Victor Hugo, 1862
-24, The Count of Monte Cristo, Alexandre Dumas, 1844
-25, The Picture of Dorian Gray, Oscar Wilde, 1890
-26, Alice's Adventures in Wonderland, Lewis Carroll, 1865
-27, One Hundred Years of Solitude, Gabriel Garcia Marquez, 1967
-28, Catch-22, Joseph Heller, 1961
-29, Slaughterhouse-Five, Kurt Vonnegut, 1969
-30, The Grapes of Wrath, John Steinbeck, 1939
-31, Of Mice and Men, John Steinbeck, 1937
-32, The Old Man and the Sea, Ernest Hemingway, 1952
-33, A Tale of Two Cities, Charles Dickens, 1859
-34, The Chronicles of Narnia, C.S. Lewis, 1950
-35, Dune, Frank Herbert, 1965
-36, Foundation, Isaac Asimov, 1951
-37, The Hitchhiker's Guide to the Galaxy, Douglas Adams, 1979
-38, Neuromancer, William Gibson, 1984
-39, Ender's Game, Orson Scott Card, 1985
-40, The Handmaid's Tale, Margaret Atwood, 1985
-41, Beloved, Toni Morrison, 1987
-42, The Alchemist, Paulo Coelho, 1988
-43, Jurassic Park, Michael Crichton, 1990
-44, A Game of Thrones, George R.R. Martin, 1996
-45, Harry Potter and the Philosopher's Stone, J.K. Rowling, 1997
-46, The Fellowship of the Ring, J.R.R. Tolkien, 1954
-47, The Road, Cormac McCarthy, 2006
-48, Project Hail Mary, Andy Weir, 2021
-49, Frankenstein, Mary Shelley, 1818
-50, Ender's Game, Orson Scott Card, 1985
+1, The Hobbit, J.R.R. Tolkien, 1937, Available
+2, Pride and Prejudice, Jane Austen, 1813, Available
+3, 1984, George Orwell, 1949, Available
+4, To Kill a Mockingbird, Harper Lee, 1960, Available
+5, The Great Gatsby, F. Scott Fitzgerald, 1925, Available
+6, The Catcher in the Rye, J.D. Salinger, 1951, Available
+7, The Little Prince, Antoine de Saint-Exupery, 1943, Available
+8, Jane Eyre, Charlotte Bronte, 1847, Available
+9, Brave New World, Aldous Huxley, 1932, Available
+10, Animal Farm, George Orwell, 1945, Available
+11, The Lord of the Rings, J.R.R. Tolkien, 1954, Available
+12, Fahrenheit 451, Ray Bradbury, 1953, Available
+13, Moby-Dick, Herman Melville, 1851, Available
+14, War and Peace, Leo Tolstoy, 1869, Available
+15, Crime and Punishment, Fyodor Dostoevsky, 1866, Available
+16, The Odyssey, Homer, -800, Available
+17, Wuthering Heights, Emily Bronte, 1847, Available
+18, The Adventures of Huckleberry Finn, Mark Twain, 1884, Available
+19, Great Expectations, Charles Dickens, 1861, Available
+20, Anna Karenina, Leo Tolstoy, 1878, Available
+21, The Brothers Karamazov, Fyodor Dostoevsky, 1880, Available
+22, Don Quixote, Miguel de Cervantes, 1605, Available
+23, Les Miserables, Victor Hugo, 1862, Available
+24, The Count of Monte Cristo, Alexandre Dumas, 1844, Available
+25, The Picture of Dorian Gray, Oscar Wilde, 1890, Available
+26, Alice's Adventures in Wonderland, Lewis Carroll, 1865, Available
+27, One Hundred Years of Solitude, Gabriel Garcia Marquez, 1967, Available
+28, Catch-22, Joseph Heller, 1961, Available
+29, Slaughterhouse-Five, Kurt Vonnegut, 1969, Available
+30, The Grapes of Wrath, John Steinbeck, 1939, Available
+31, Of Mice and Men, John Steinbeck, 1937, Available
+32, The Old Man and the Sea, Ernest Hemingway, 1952, Available
+33, A Tale of Two Cities, Charles Dickens, 1859, Available
+34, The Chronicles of Narnia, C.S. Lewis, 1950, Available
+35, Dune, Frank Herbert, 1965, Available
+36, Foundation, Isaac Asimov, 1951, Available
+37, The Hitchhiker's Guide to the Galaxy, Douglas Adams, 1979, Available
+38, Neuromancer, William Gibson, 1984, Available
+39, Ender's Game, Orson Scott Card, 1985, Available
+40, The Handmaid's Tale, Margaret Atwood, 1985, Available
+41, Beloved, Toni Morrison, 1987, Available
+42, The Alchemist, Paulo Coelho, 1988, Available
+43, Jurassic Park, Michael Crichton, 1990, Available
+44, A Game of Thrones, George R.R. Martin, 1996, Available
+45, Harry Potter and the Philosopher's Stone, J.K. Rowling, 1997, Available
+46, The Fellowship of the Ring, J.R.R. Tolkien, 1954, Available
+47, The Road, Cormac McCarthy, 2006, Available
+48, Project Hail Mary, Andy Weir, 2021, Available
+49, Frankenstein, Mary Shelley, 1818, Available
+50, Ender's Game, Orson Scott Card, 1985, Available

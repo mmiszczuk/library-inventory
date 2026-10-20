@@ -8,6 +8,6 @@ public class Book {
         this.year = year;
     }
     public String toString() {
-        return title + ", " + author + ", " + year;
+        return title + ", " + author + ", " + year + ", Available";
     }
 }
